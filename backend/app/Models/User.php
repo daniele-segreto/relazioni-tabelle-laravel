@@ -42,4 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Definisce la relazione "appartiene a uno" tra questo modello e il modello User.
+     * Ogni istanza di questo modello appartiene a una singola istanza di User.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
