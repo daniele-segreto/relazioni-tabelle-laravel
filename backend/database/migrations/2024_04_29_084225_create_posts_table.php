@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            // Definisce una colonna "user_id" per memorizzare l'ID dell'utente che ha creato il post.
+            $table->unsignedBigInteger('user_id');
+            // Imposta una chiave esterna sulla colonna "user_id" che fa riferimento all'ID nella tabella "users".
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('title');
+            $table->text('content');
             $table->timestamps();
         });
     }
