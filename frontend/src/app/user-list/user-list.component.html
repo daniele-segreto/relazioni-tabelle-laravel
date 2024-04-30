@@ -1,1 +1,8 @@
-<p>user-list works!</p>
+<div *ngIf="users">
+  <h1>User List</h1>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.name }}
+    </li>
+  </ul>
+</div>
